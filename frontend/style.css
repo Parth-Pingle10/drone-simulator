@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    color: #E6E6E6;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: Rajdhani;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(31, 38, 46);
+}
+
+
+.name {
+    font-family: Audiowide;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 1vw;
+    font-size: 50px;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  background-color: #000000cc; /* white with some transparency */
+  border-radius: 10px;
+  width: 120px;
+}
+
+.custom-popup .leaflet-popup-tip {
+  background-color: #000000cc;
+}
+
+.popup-content {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+
+.info {
+    display: flex;
+    border-radius: 8px;
+    margin-left: 1vw;
+    flex-direction: column;
+    border: 1px solid hsl(212, 76%, 23%);
+    background-color: hsl(210 20% 8%);
+    margin-bottom: 30px;
+    width: 98vw;
+    height: 100px;
+    flex-direction: column;
+    height: 8vw;
+}
+
+.head {
+    display: flex;
+    padding: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.head p {
+    display: flex;
+    font-size: 20px;
+    margin-right: 1100px;
+}
+
+.connect {
+    display: flex;
+    color: #0c0f12;
+    color: #0c0f12;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 80px;
+    top: 145px;
+    width: 4vw;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px 30px;
+    padding-right: 60px;
+    padding-left: 60px;
+    background-color: #00aaff;
+}
+
+.connect.clicked{
+    background-color: #e64c4c;
+    color: #E6E6E6;
+}
+
+.setting {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.idk {
+    display: flex;
+    align-items: center;
+}
+
+.connected {
+    height: 12px;
+    width: 12px;
+    margin-right: 5px;
+}
+
+
+
+.box {
+    margin-right: 100px;
+    margin-left: 40px;
+    padding: 5px;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e64c4c;
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}
+/* 
+.box.daba{
+    background-color: #00aaff;
+    
+} */
+
+.box.daba .mahiti{
+    color: #0c0f12 ;
+    
+}
+.row,
+.row2 {
+    display: flex;
+    padding-left: 30px;
+    
+    gap: 30px;
+}
+
+.heading,
+.altitude,
+.battery,
+.data {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #521414;
+    width: 472px;
+    height: 220px;
+    padding-left: 30px;
+    justify-content: center;
+    background-color: hsl(210 20% 8%);
+    border: 1px solid hsl(212, 76%, 23%);
+    border-radius: 12px;
+    transition: display 1s ease-in-out;
+}
+
+.row {
+    margin-bottom: 30px;
+}
+
+.data {
+    display: none;
+    flex-direction: column;
+    
+}
+
+.coord {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.latitude {
+    display: flex;
+}
+
+.row2 {
+    gap: 180px;
+}
+
+.praju {
+    display: flex;
+}
+
+
+#map {
+    height: 320px; 
+    width: 650px;
+    display: none;
+}
+
+
+.heading p,
+.altitude p,
+.data p,
+.battery p {
+    font-size: 20px;
+}
+
+.charge,
+.angle,
+.height {
+    font-size: 50px;
+}
+
+.latitude,
+.longitude {
+    font-size: 30px;
+}
+
+.battery span,
+.data span,
+.altitude span,
+.heading span {
+    font-size: 16px;
+}
+
+.leaflet-popup-content {
+    font-size: 1rem;
+}
+
+.dis{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dis span{
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.dis div{
+    font-size: 24px;
+}
+
+.line{
+    height: 100px;
+    width: 6px;
+    filter: blur(5px);
+    background-color:	#00f0ff;
+    position: absolute;
+    left: -10px;
+    z-index: 999;
+    transition: left 0.5s ease-in-out;
+}
+
+.connect:hover .line{
+    left:150px;
+}
+
+
+.connect.clicked:hover .line{
+    left:150px;
+}
+
+
+.ip{
+    
+    position: absolute;
+    right: 230px;
+    width: 15vw;
+    height: 5.5vh;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    padding-left: 10px;
+    border: 2px solid hsl(212, 76%, 23%);
+    background-color: hsla(210, 20%, 8%, 0);
+    top: 145px;
+}
+
+.alert{
+    position: absolute;
+    right: 300px;
+    color: red;
+    background-color: #f5f5f5;
+    width: 10vw;
+    height: 4vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    top: 187px;
+    
+}
+.ip:focus{
+     box-shadow:0 0 10px rgba(0, 238, 255, 0.4);
+
+  transition: box-shadow 0.3s ease;
+}

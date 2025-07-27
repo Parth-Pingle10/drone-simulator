@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    user-select: none;
+    padding: 0;
+    margin: 0;
+    font-family: Barlow Condensed;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 55px;
+    margin-right: 15px;
+}
+
+body {
+    overflow: scroll;
+    background-color: #0e131b;
+    display: flex;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.back {
+    border-radius: 8px;
+    margin-left: 10px;
+    height: 55px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    background: linear-gradient(145deg, hsla(218, 31%, 12%, 0.979), hsla(217, 32%, 14%, 0.968));
+    position: fixed;
+    width: 100vw;
+z-index: 999;
+    border-bottom: 1px solid #1e293b;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    display: flex;
+    height: 80px;
+backdrop-filter: blur(5px);
+}
+
+.glass {
+    height: 22px;
+    background: transparent;
+    padding-left: 8px;
+    color: #e6e6e6;
+}
+
+.shodh {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 234, 255, 0.356);
+    border-radius: 8px;
+}
+
+.admin {
+    font-size: 28px;
+}
+
+.club {
+    font-size: 18px;
+}
+
+.name {
+    margin-right: 950px;
+    color: #e6e6e6;
+}
+
+.search {
+    background: transparent;
+    outline: none;
+    width: 200px;
+    padding: 10px;
+    font-size: 17px;
+    caret-color: white;
+    color: #e6e6e6;
+    border: none;
+}
+
+
+.card-container {
+    position: absolute;
+    height: 100px;
+    width: 100vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    top: 150px;
+}
+
+.card {
+    padding: 15px;
+    padding-left: 20px;
+    border-radius: 12px;
+    width: 420px;
+    background: linear-gradient(145deg, hsl(217 32% 12%), hsl(217 32% 14%));
+    display: flex;
+    max-height: 300px;
+    flex-direction: column;
+    color: rgba(230, 230, 230, 0.804);
+    font-size: 18px;
+    line-height: 40px;  
+}
+
+.clear{
+    background:transparent;
+    color: #fefefe;
+    height: 30px;
+    width: 60px;
+    border: 1px solid rgba(0, 234, 255, 0.356);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius: 8px;
+    font-size: 18px;
+    position: absolute;
+    top: 19px;
+    cursor: pointer;
+    right: 400px;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+}
+
+.clear:hover{
+    color: #1a1a1a;
+    background-color: #e6e6e6;
+}
