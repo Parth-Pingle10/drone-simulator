@@ -15,7 +15,7 @@
 }
 
 body {
-    background: linear-gradient(1355deg, #425ccf, #0c394c);
+    background: linear-gradient(270deg, rgb(31, 38, 46), #0c394c);
 }
 
 .contain {
@@ -29,10 +29,10 @@ body {
 .login {
     height: 500px;
     width: 400px;
-    border: 1px solid #38bff888;
+    border: 1px solid rgba(56, 191, 248, 0.1);
     border-radius: 12px;
     background: transparent;
-    box-shadow: 0 0 10px #38bff838;
+    box-shadow: 0 0 10px rgba(56, 191, 248, 0.32);
 }
 
 .login ul {
@@ -79,6 +79,7 @@ body {
     width: 280px;
     height: 35px;
     padding-left: 10px;
+    background: transparent;
     caret-color: #1a1a2e65;
     color: #1a1a2e;
     font-size: 18px;
@@ -87,7 +88,7 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 1px solid #38bdf8;
+    border: 1px solid #38bff853;
     outline: none;
 }
 

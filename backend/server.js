@@ -25,6 +25,10 @@ const Telemetry = new mongoose.Schema({
         type: Number,
         required: true
     },
+    speed: {
+        type: Number,
+        required: true
+    },
     gps: {
         latitude: {
             type: Number,
@@ -41,17 +45,26 @@ const Telemetry = new mongoose.Schema({
     }
 });
 
-const Data = mongoose.model('Drone', Telemetry);
+const Data = mongoose.model('Drone', Telemetry, 'DroneData');
+const Copieddata = mongoose.model('copy', Telemetry, 'CopyData');
 
 app.post('/upload', async (req, res) => {
     try {
 
-        const { heading, altitude, battery, latitude, longitude } = req.body;
+        const { heading,
+            altitude,
+            battery,
+            speed,
+            gps: {
+                latitude,
+                longitude
+            } } = req.body;
 
         const NewData = new Data({
             heading,
             altitude,
             battery,
+            speed,
             gps: {
                 latitude,
                 longitude
@@ -66,13 +79,33 @@ app.post('/upload', async (req, res) => {
 
 
 app.get('/data', async (req, res) => {
-  try {
-    const allData = await Data.find().sort({ timestamp: -1 });
-    res.json(allData);
-  } catch (err) {
-    res.status(500).send("Error fetching data: " + err.message);
-  }
+    try {
+        const allData = await Data.find().sort({ timestamp: -1 });
+        res.json(allData);
+    } catch (err) {
+        res.status(500).send("Error fetching data: " + err.message);
+    }
 });
 
+app.post('/copy', async (req, res) => {
+    try {
+        const info = await Data.find({});
+        await Copieddata.insertMany(info);
+        res.send(`Copied ${info.length} entries to backup.`);
+    } catch (err) {
+        res.status(500).send('Failed to copy data');
+    }
+});
 
-app.listen(5000, () => console.log("🚀 Server running at http://localhost:5000"));
+app.delete('/delete', async (req, res) => {
+    try {
+        await Data.deleteMany({});
+        res.send("Data deleted successfully");
+
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+
+app.listen(5000, () => console.log("Server running at http://localhost:5000"));

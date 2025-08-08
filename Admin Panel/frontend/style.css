@@ -62,6 +62,7 @@ backdrop-filter: blur(5px);
     align-items: center;
     border: 1px solid rgba(0, 234, 255, 0.356);
     border-radius: 8px;
+    
 }
 
 .admin {
@@ -73,7 +74,7 @@ backdrop-filter: blur(5px);
 }
 
 .name {
-    margin-right: 950px;
+    margin-right: 900px;
     color: #e6e6e6;
 }
 
@@ -140,4 +141,19 @@ backdrop-filter: blur(5px);
 .clear:hover{
     color: #1a1a1a;
     background-color: #e6e6e6;
+}
+.save{
+    padding: 11px;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #e6e6e6;
+    cursor: pointer;
+    background-color: #e64c4c;
+    margin-right: 30px;
+    transition: all 0.3s ease;
+}
+
+.save:hover{
+    background-color: #00aaff;
 }

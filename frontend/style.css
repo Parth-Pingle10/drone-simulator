@@ -278,6 +278,21 @@ body {
     top: 145px;
 }
 
+.url{
+    
+    position: absolute;
+    right: 500px;
+    width: 15vw;
+    height: 5.5vh;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    padding-left: 10px;
+    border: 2px solid hsl(212, 76%, 23%);
+    background-color: hsla(210, 20%, 8%, 0);
+    top: 145px;
+}
+
 .alert{
     position: absolute;
     right: 300px;
@@ -293,6 +308,11 @@ body {
     
 }
 .ip:focus{
+     box-shadow:0 0 10px rgba(0, 238, 255, 0.4);
+
+  transition: box-shadow 0.3s ease;
+}
+.url:focus{
      box-shadow:0 0 10px rgba(0, 238, 255, 0.4);
 
   transition: box-shadow 0.3s ease;
