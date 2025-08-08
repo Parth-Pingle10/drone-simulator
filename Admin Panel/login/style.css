@@ -80,10 +80,9 @@ body {
     height: 35px;
     padding-left: 10px;
     background: transparent;
-    caret-color: #1a1a2e65;
-    color: #1a1a2e;
+    caret-color: #e6e6e6;
+    color: #e6e6e6;
     font-size: 18px;
-    /* margin-bottom: 30px; */
     display: flex;
     align-items: center;
     justify-content: center;
