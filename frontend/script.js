@@ -1,10 +1,8 @@
 document.querySelector(".connect").addEventListener("click", () => {
     const input = document.querySelector(".url").value
-    const ip = document.querySelector(".ip").value
 
 
     localStorage.setItem("stream", input)
-    localStorage.setItem("ip", ip)
     const date = new Date()
     const formatted = date.toLocaleString("en-IN", {
         day: "2-digit",
@@ -28,11 +26,4 @@ document.querySelector("body").addEventListener("keydown", (e) => {
     }
 })
 
-function alert() {
-    document.querySelector(".alert").style.display = "flex"
-    setInterval(() => {
-        document.querySelector(".alert").style.display = "none"
 
-    }, 1500);
-
-}
