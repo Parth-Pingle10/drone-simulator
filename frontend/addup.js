@@ -79,7 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-document.querySelector('.disconnect').addEventListener("click", () => {
-    window.location.href = "index.html"
+document.querySelector('.disconnect').addEventListener("click",async () => {
+    fetch('https://drone-backend-ux0x.onrender.com/accept',{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({accepting:false})
+    }).then(()=>{
+
+        window.location.href = "index.html"
+    })
 })
 
