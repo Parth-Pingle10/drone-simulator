@@ -12,7 +12,7 @@ document.querySelector(".submit").addEventListener("click", () => {
     }
     if (input === "drc_spit" && password === "DRC_spit@1106") {
 
-        window.location.href = "../frontend/index.html";
+        window.location.href = "panel.html";
     }
 });
 
