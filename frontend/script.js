@@ -5,9 +5,8 @@ document.querySelector(".connect").addEventListener("click", () => {
 
     localStorage.setItem("stream", input)
     localStorage.setItem("ip", ip)
-    window.location.href = "addup.html"
     const date = new Date()
-    const formatted = now.toLocaleString("en-IN", {
+    const formatted = date.toLocaleString("en-IN", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",
@@ -18,6 +17,7 @@ document.querySelector(".connect").addEventListener("click", () => {
         timeZone: "Asia/Kolkata"
     });
     document.querySelector(".time").textContent = "Last Connected:" + formatted
+    window.location.href = "addup.html"
 
 })
 
