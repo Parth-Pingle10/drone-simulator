@@ -36,9 +36,7 @@ let speed = 0;
 function connectsocket() {
 
     socket = new WebSocket(`ws://${ip}:81`)
-    console.log(`ws://${ip}:81`)
     socket.addEventListener("open", () => {
-        console.log('Connected to esp-32')
     });
     socket.addEventListener("message", async (e) => {
         try {
@@ -58,7 +56,7 @@ function connectsocket() {
             document.querySelector("#altitude").textContent = altitude
             document.querySelector(".actual").textContent = speed
 
-            const res = await fetch('http://localhost:5000/upload', {
+            const res = await fetch('https://drone-backend-ux0x.onrender.com/upload', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -88,13 +86,7 @@ function connectsocket() {
         map.setView([latitude, longitude]);
     }
 
-    socket.addEventListener("close", () => {
-        console.log("WebSocket closed.");
-    });
 
-    socket.addEventListener("error", (err) => {
-        console.error("WebSocket error:", err);
-    });
 
 }
 
@@ -110,9 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function disconnectsocket() {
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.close();
-    } else {
-        console.log("WebSocket is already closed or not initialized.");
-    }
+    } 
 }
 document.querySelector('.disconnect').addEventListener("click", () => {
     window.location.href = "index.html"

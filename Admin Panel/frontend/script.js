@@ -9,7 +9,7 @@ document.querySelector(".search").addEventListener("input", () => {
 });
 
 
-    fetch(`http://localhost:5000/data`)
+    fetch(`https://drone-backend-ux0x.onrender.com/data`)
         .then(response => response.json())
         .then(data => {
             const container = document.querySelector(".card-container");
@@ -49,13 +49,13 @@ document.querySelector(".search").addEventListener("input", () => {
 
         saveBtn.addEventListener("click", async() => {
             download();
-            console.log("clicked");
+            
             try{
-                const copy=await fetch('http://localhost:5000/copy',{
+                const copy=await fetch('https://drone-backend-ux0x.onrender.com/copy',{
                     method:"POST"
                 });
 
-                const deletedata=await fetch('http://localhost:5000/delete',{
+                const deletedata=await fetch('https://drone-backend-ux0x.onrender.com/delete',{
                     method:"DELETE"
                 })
             }catch(err){
@@ -67,7 +67,7 @@ document.querySelector(".search").addEventListener("input", () => {
 
     async function download() {
         try {
-            const res = await fetch('http://localhost:5000/data')
+            const res = await fetch('https://drone-backend-ux0x.onrender.com/data')
             const json = await res.json();
 
             const blob = new Blob([JSON.stringify(json, null, 2)], { type: "application/json" });
