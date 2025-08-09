@@ -3,12 +3,12 @@ const map = L.map('map').setView([19.0760, 72.8777], 13);
 const slider = document.querySelector(".slider");
 const stream = localStorage.getItem("stream")
 const ip = localStorage.getItem("ip")
- 
-if(stream===""){
-    document.querySelector("#webcam").src="Black_colour.jpg"
+
+if (stream === "") {
+    document.querySelector("#webcam").src = "Black_colour.jpg"
 }
-else{
-    document.querySelector("#webcam").src=stream
+else {
+    document.querySelector("#webcam").src = stream
 
 }
 
@@ -38,59 +38,24 @@ let socket;
 let speed = 0;
 
 // Simulated socket connection for testing
-function connectsocket() {
+async function connectsocket() {
 
-    socket = new WebSocket(`wss://${ip}:81`)
-    socket.addEventListener("open", () => {
-    });
-    socket.addEventListener("message", async (e) => {
-        try {
-
-            const data = JSON.parse(e.data)
-            latitude = data.gps.lat;
-            longitude = data.gps.lon;
-            heading = data.heading;
-            altitude = data.altitude;
-            battery = data.battery;
-            speed = data.speed;
-            const now = new Date();
-            document.querySelector(".cont").textContent = heading
-            document.querySelector(".lat").textContent = latitude
-            document.querySelector(".long").textContent = longitude
-            document.querySelector("#battery").textContent = battery
-            document.querySelector("#altitude").textContent = altitude
-            document.querySelector(".actual").textContent = speed
-
-            const res = await fetch('https://drone-backend-ux0x.onrender.com/upload', {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    heading,
-                    altitude,
-                    battery,
-                    speed,
-                    gps: {
-                        latitude,
-                        longitude
-                    }
-                })
-            })
-            if (marker) {
-                marker.setLatLng([latitude, longitude])
-                    .setPopupContent(`Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`);
-                map.setView([latitude, longitude]);
-            }
-        } catch (err) {
-            console.log(err)
+    try {
+        const response = await fetch('https://drone-backend-ux0x.onrender.com/data');
+        const data = await response.json();
+        if (data.length > 0) {
+            const latest = data[0];
+            console.log('Latest data:', latest);
+            document.querySelector(".lat").textContent = latest.gps.latitude;
+            document.querySelector(".long").textContent = latest.gps.longitude;
+            document.querySelector(".cont").textContent = latest.heading;
+            document.querySelector("#battery").textContent = latest.battery;
+            document.querySelector("#altitude").textContent = latest.altitude;
+            document.querySelector(".actual").textContent = latest.speed;
         }
-    });
-
-    if (marker) {
-        marker.setLatLng([latitude, longitude])
-            .setPopupContent(`Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`);
-        map.setView([latitude, longitude]);
+    } catch (error) {
+        console.error('Failed to fetch telemetry:', error);
     }
-
 
 
 }
@@ -107,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function disconnectsocket() {
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.close();
-    } 
+    }
 }
 document.querySelector('.disconnect').addEventListener("click", () => {
     window.location.href = "index.html"
