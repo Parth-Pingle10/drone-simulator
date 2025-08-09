@@ -66,27 +66,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
+    function convertToCSV(arr) {
+        const header = Object.keys(arr[0]).join(",") + "\n";
+        const rows = arr
+            .map(obj => Object.values(obj).map(value => `"${value}"`).join(","))
+            .join("\n");
+        return header + rows;
+    }
+    function downloadcsv(data,filename="data.csv"){
+       const blob=new Blob([data],{type:`text/csv`})
+       const url=URL.createObjectURL(blob)
+       const a=document.createElement("a")
+       a.href=url;
+       a.download=filename;
+       a.click();
+       URL.revokeObjectURL(url)
+    }
     async function download() {
         try {
             const res = await fetch('https://drone-backend-ux0x.onrender.com/data')
-            const json = await res.json();
+            const data = await res.json();
+            const csv=convertToCSV(data)
 
-            const blob = new Blob([JSON.stringify(json, null, 2)], { type: "application/json" });
-            const url = URL.createObjectURL(blob)
-
-            const a = document.createElement("a")
-            a.href = url;
-            a.download = "data.json"
-            a.click();
-
-            URL.revokeObjectURL(url);
+           downloadcsv(csv,"DRC_Data.csv")
         }
         catch (err) {
             console.error(err);
         }
     }
-    
+
     setInterval(() => {
         fetchdata()
     }, 1000);
