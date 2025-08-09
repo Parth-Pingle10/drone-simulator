@@ -305,7 +305,6 @@ body {
     justify-content: center;
     border-radius: 8px;
     top: 187px;
-    
 }
 .ip:focus{
      box-shadow:0 0 10px rgba(0, 238, 255, 0.4);

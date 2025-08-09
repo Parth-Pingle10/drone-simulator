@@ -3,10 +3,15 @@ const map = L.map('map').setView([19.0760, 72.8777], 13);
 const slider = document.querySelector(".slider");
 const stream = localStorage.getItem("stream")
 const ip = localStorage.getItem("ip")
+ 
+if(stream===""){
+    document.querySelector("#webcam").src="Black_colour.jpg"
+}
+else{
+    document.querySelector("#webcam").src=stream
 
-const newUrl = stream;
-const iframe = document.getElementById("webcam");
-iframe.src = newUrl;
+}
+
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
