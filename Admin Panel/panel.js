@@ -8,10 +8,11 @@ document.querySelector(".search").addEventListener("input", () => {
     });
 });
 
+function fetchdata(){
 
     fetch(`https://drone-backend-ux0x.onrender.com/data`)
-        .then(response => response.json())
-        .then(data => {
+    .then(response => response.json())
+    .then(data => {
             const container = document.querySelector(".card-container");
             container.innerHTML = ""
             data.forEach(entry => {
@@ -38,15 +39,16 @@ document.querySelector(".search").addEventListener("input", () => {
             <div>Time: ${dateTime}</div>
             `;
 
-                container.appendChild(card);
+            container.appendChild(card);
             })
         });
 
   
-
+    }
+        
     const saveBtn = document.querySelector(".save");
 
-
+    
         saveBtn.addEventListener("click", async() => {
             download();
             
@@ -85,3 +87,7 @@ document.querySelector(".search").addEventListener("input", () => {
         }
     }
 });
+
+setInterval(() => {
+   fetchdata()
+}, 1000);
