@@ -40,7 +40,7 @@ let speed = 0;
 // Simulated socket connection for testing
 function connectsocket() {
 
-    socket = new WebSocket(`ws://${ip}:81`)
+    socket = new WebSocket(`wss://${ip}:81`)
     socket.addEventListener("open", () => {
     });
     socket.addEventListener("message", async (e) => {
