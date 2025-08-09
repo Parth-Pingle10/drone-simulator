@@ -1,15 +1,12 @@
 document.querySelector(".connect").addEventListener("click", () => {
     const input = document.querySelector(".url").value
     const ip = document.querySelector(".ip").value
-    if (ip === "") {
-        alert()
-
-    } else {
+   
  
         localStorage.setItem("stream", input)
         localStorage.setItem("ip", ip)
         window.location.href = "addup.html"
-    }
+    
 })
 
 
