@@ -17,7 +17,7 @@ It’s perfect for:
 ## Live Demo
  **[Click here to view the Drone Telemetry Dashboard](https://dashboard-ocgd.onrender.com)**
  
- **[Click here to view the Drone Admin Panel](https://dashboard-ocgd.onrender.com)**
+ **[Click here to view the Drone Admin Panel](https://adminpanel-7mma.onrender.com)**
 
 ## Screenshots
 
